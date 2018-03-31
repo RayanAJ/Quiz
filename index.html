@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Quizes</title>
+    <link rel="icon" href="images/icon.ico">
+	<!-- <meta> tags provide search engines with information used to catalog a site -->
+	<meta name="keywords" content="Random quiz">
+	<meta name="description" content="This webpage provides small quiz with 10 questions contains 3 differenet group of questions">
+	<link rel="stylesheet" type="text/css" href="scripts/style.css" />
+	<script src="scripts/functions.js"></script>
+	<script src="scripts/dragAndDrop.js"></script>
+	<script src="scripts/email.js"></script>
+    <script src="scripts/chartAndTimer.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- drag and Drops -->
+	<script src="scripts/jquery-ui.js">
+	</script>
+
+
+	<!-- Charts -->
+	<script src="scripts/chart.js"></script>
+
+
+	<!-- email -->
+	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+	<script type="text/javascript">
+		(function () {
+			emailjs.init("user_tZb4GteScTkf3nR0zJrj7");
+		})();
+	</script>
+
+
+</head>
+
+<body>
+	<header>
+		<!-- The header is divided to three division: topLeftAside, topRightAside, Center, and footer -->
+		<div id="topLeftAside">
+			<img src="images/KFUPMLogo.png" alt="KFUPM Logo" width="90" height="85">
+		</div>
+		<div id="topRightAside">
+			<img src="images/ICSLogo.png" alt="ICS Logo" width="60" height="83">
+		</div>
+		<div id="topBody">
+			<table>
+				<tr>
+					<td>King Fahd University of Petroleum & Minerals</td>
+					<td>جـامـعـة المـلك فـهـد للـبـتـرول والمـعـادن</td>
+				</tr>
+				<tr>
+					<td>College of Computer Sciences & Engineering</td>
+					<td>كـلـيـة عـلـوم وهنـدسـة الحــاسـب الآلي</td>
+				</tr>
+				<tr>
+					<td>Information & Computer Science Department</td>
+					<td>قـسـم عـلـم الحـاسـب الآلي والمـعلـومـات</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="topFooter">
+			<a class="firstSentance">Assignment #2</a>
+		</div>
+	</header>
+	<!-- Quiz starts Here -->
+
+	<div id="container">
+
+		<!-- Executable Area -->
+		<div id="timer"></div>
+		<div id="demo_div"></div>
+		<div id="return_main"></div>
+		<!-- implementation Start -->
+
+		<!-- Name and E-mail -->
+		<script>
+			// Question numbers ----------
+			// Validate Email -------------
+
+			// Validate email ---------
+			var user_mail_address = "";
+
+			var menu = '<button id="quiz_btn" onclick="information()">Take Quiz Number -1</button>' +
+				'		<button id="quiz_btn" onclick="formsubmission()">Take Quiz Number -2(Coming soon)<br></button>' +
+				'		<div id="demo_div"></div>' +
+				'		<div id="btn_out"></div>';
+
+			document.getElementById("demo_div").innerHTML = menu;
+
+			var info = "";
+
+			function information() {
+				info = '<br><br><form name="myform" method="get" onsubmit="return validation()" >' +
+					'			Name : <input  name="username" id="username" required="required"><br><br>' +
+					'			E-mail: <input name="user_mail" id="user_given" required="required"><span id="message"></span><br><br>' +
+					'			<button type="submit" id="user_given">Submit Data</button>' +
+					'			</form>';
+				document.getElementById("demo_div").innerHTML = info;
+				
+			}
+
+			function validation() {
+				var mail = document.myform.user_mail.value;
+                window.mail = mail;
+                var username = document.myform.username.value;
+                window.username = username;
+                
+				// E-mail validation ------
+				var inputElement = document.getElementById('user_given');
+				var user_given_email = '';
+				inputElement.addEventListener('change', function (e) {
+					user_given_email = e.target.value;
+				});
+
+				if (mail.indexOf('@') <= 0) {
+					document.getElementById("message").innerHTML = "Wrong Mail";
+					return false;
+				}
+				if ((mail.charAt(mail.length - 4) !== '.') && (mail.charAt(mail.length - 3) !== '.')) {
+					document.getElementById("message").innerHTML = "Wrong Mail . position ";
+					return false;
+				} else {
+					count_down(300, "timer");
+					repeatQuestion();
+
+
+
+				}
+			}
+
+
+			
+		</script> 
+
+	
+
+		
+		<canvas id="myChart" width="400" height="80"></canvas>
+
+
+
+		<!-- Drag and Drop Div -->
+		<div id="myvar"></div>
+		<div id="drag_btn"></div>
+		<div id="drag_btn2"></div>
+		
+		<!-- reset button -->
+		<!-- <button onclick="final()">Reset</button> -->
+
+
+
+
+	</div>
+	<footer>
+		<div class="footer_area">&copy; King Fahad University, Saudi Arabia</div>
+	</footer>
+</body>
