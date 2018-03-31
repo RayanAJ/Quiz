@@ -123,6 +123,7 @@
 					place++;
                     if(place == 5)
                     {
+                        document.getElementById("timer").innerHTML = "Refreshing Time"
                         document.getElementById("timer").setAttribute("id", "timer2");
                         var timer = setTimeout('count_down(' + 600 + ',"' + "timer2" + '")', 1000);
                     }
@@ -153,6 +154,9 @@
 							if (place <= 7) {
 								repeatQuestion();
 							} else {
+                                document.getElementById("time2").innerHTML = "Refreshing Time"
+                                document.getElementById("timer2").setAttribute("id", "timer3");
+                                var timer = setTimeout('count_down(' + 240 + ',"' + "timer3" + '")', 1000);
 								final()
 							}
 
@@ -165,6 +169,7 @@
 							if (place <= 7) {
 								repeatQuestion();
 							} else {
+                                document.getElementById("timer2").innerHTML = "Refreshing Time"
                                 document.getElementById("timer2").setAttribute("id", "timer3");
                                 var timer = setTimeout('count_down(' + 240 + ',"' + "timer3" + '")', 1000);
 								final();
