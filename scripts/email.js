@@ -135,8 +135,6 @@
                 else if (querys[place][4] == "checkbox") {
 					var user_checked = document.getElementsByName("Options");
 					var str = "";
-                   // document.getElementById("timer").setAttribute("id", "timer2");
-                   // var timer = setTimeout('count_down(' + 300 + ',"' + "timer2" + '")', 1000);
 
 					// Mining Values from checkbox -----------------------------------
 					function checkboxFunction() {
@@ -154,7 +152,7 @@
 							if (place <= 7) {
 								repeatQuestion();
 							} else {
-                                document.getElementById("time2").innerHTML = "Refreshing Time"
+                                document.getElementById("timer2").innerHTML = "Refreshing Time"
                                 document.getElementById("timer2").setAttribute("id", "timer3");
                                 var timer = setTimeout('count_down(' + 240 + ',"' + "timer3" + '")', 1000);
 								final()
